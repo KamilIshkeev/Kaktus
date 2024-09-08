@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CollectionCactus;
 
 
 
@@ -61,7 +62,15 @@ namespace CollectionCactus.page
 
             //ListCactus.Items.Clear();
         }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            
+            //ListCactus.Items.Add();
+        }
     }
+
+
 
 
 }

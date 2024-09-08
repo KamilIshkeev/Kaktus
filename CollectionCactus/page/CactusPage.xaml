@@ -31,6 +31,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                         <Button x:Name="btnDelete" Width="60" Content="Delete" Click="btnDelete_Click" DataContext="this"/>
+                                        <Button x:Name="btnAdd" Width="60" Content="Add" Click="btnAdd_Click" DataContext="this"/>
                                     </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
