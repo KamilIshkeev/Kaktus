@@ -9,6 +9,13 @@
       Title="Collection" Background="white">
 
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="18*"/>
+        </Grid.RowDefinitions>
+        <Frame x:Name="CollectionPage" Grid.RowSpan="2"/>
+
         <Grid Grid.RowSpan="2">
             <ListView Name="ListCollection" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Background="White">
                 <ListView.View >
@@ -16,6 +23,17 @@
                         <GridViewColumn DisplayMemberBinding="{Binding Path=id_collection}" Width="85">ID Кактуса</GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=name}" Width="150">Имя Кактуса</GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=all_price}" Width="85">Тип Кактуса</GridViewColumn>
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button x:Name="btnDelete" Width="60" Content="Delete" Click="btnDelete_Click" DataContext="this"/>
+                                       
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
                     </GridView>
                 </ListView.View>
 

@@ -37,18 +37,18 @@ namespace CollectionCactus.page
             ListCactus.ItemsSource = connect.db.Cactus.ToList();
         }
 
-        private void ListCactus_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            var temp = (Cactus)ListCactus.SelectedItem;
-        }
+        //private void ListCactus_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        //{
+        //    var temp = (Cactus)ListCactus.SelectedItem;
+        //}
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
 
             if (ListCactus.SelectedItem != null)
             {
-                int idSelectedPerson = (ListCactus.SelectedItem as Cactus).id_cactus;
-                Cactus cactus = (from r in connect.db.Cactus where r.id_cactus == idSelectedPerson select r).SingleOrDefault();
+                int idSelectedCactus = (ListCactus.SelectedItem as Cactus).id_cactus;
+                Cactus cactus = (from r in connect.db.Cactus where r.id_cactus == idSelectedCactus select r).SingleOrDefault();
                 connect.db.Cactus.Remove(cactus);
                 connect.db.SaveChanges();
                 ListCactus.ItemsSource = connect.db.Cactus.ToList();
@@ -60,7 +60,7 @@ namespace CollectionCactus.page
 
             }
 
-            //ListCactus.Items.Clear();
+           
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)

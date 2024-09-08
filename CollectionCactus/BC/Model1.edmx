@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище cactus1337Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище cactus1337Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cactus">
           <Key>
             <PropertyRef Name="id_cactus" />
@@ -17,7 +17,7 @@
           <Property Name="price" Type="int" />
           <Property Name="id_instruction" Type="int" />
         </EntityType>
-        <EntityType Name="Collection">
+        <EntityType Name="Collection1">
           <Key>
             <PropertyRef Name="id_collection" />
           </Key>
@@ -92,10 +92,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_list_collection_Collection">
-          <End Role="Collection" Type="Self.Collection" Multiplicity="0..1" />
+          <End Role="Collection1" Type="Self.Collection1" Multiplicity="0..1" />
           <End Role="list_collection" Type="Self.list_collection" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Collection">
+            <Principal Role="Collection1">
               <PropertyRef Name="id_collection" />
             </Principal>
             <Dependent Role="list_collection">
@@ -129,7 +129,7 @@
         </Association>
         <EntityContainer Name="Хранилище cactus1337ModelContainer">
           <EntitySet Name="Cactus" EntityType="Self.Cactus" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Collection" EntityType="Self.Collection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Collection1" EntityType="Self.Collection1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Exhibition" EntityType="Self.Exhibition" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="instruction" EntityType="Self.instruction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="list_collection" EntityType="Self.list_collection" Schema="dbo" store:Type="Tables" />
@@ -144,7 +144,7 @@
             <End Role="list_collection" EntitySet="list_collection" />
           </AssociationSet>
           <AssociationSet Name="FK_list_collection_Collection" Association="Self.FK_list_collection_Collection">
-            <End Role="Collection" EntitySet="Collection" />
+            <End Role="Collection1" EntitySet="Collection1" />
             <End Role="list_collection" EntitySet="list_collection" />
           </AssociationSet>
           <AssociationSet Name="FK_list_exhibition_Cactus" Association="Self.FK_list_exhibition_Cactus">
@@ -156,7 +156,8 @@
             <End Role="list_exhibition" EntitySet="list_exhibition" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="cactus1337Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -175,14 +176,14 @@
           <NavigationProperty Name="list_collection" Relationship="Self.FK_list_collection_Cactus" FromRole="Cactus" ToRole="list_collection" />
           <NavigationProperty Name="list_exhibition" Relationship="Self.FK_list_exhibition_Cactus" FromRole="Cactus" ToRole="list_exhibition" />
         </EntityType>
-        <EntityType Name="Collection">
+        <EntityType Name="Collection1">
           <Key>
             <PropertyRef Name="id_collection" />
           </Key>
           <Property Name="id_collection" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="all_price" Type="Int32" />
-          <NavigationProperty Name="list_collection" Relationship="Self.FK_list_collection_Collection" FromRole="Collection" ToRole="list_collection" />
+          <NavigationProperty Name="list_collection" Relationship="Self.FK_list_collection_Collection" FromRole="Collection1" ToRole="list_collection" />
         </EntityType>
         <EntityType Name="Exhibition">
           <Key>
@@ -210,7 +211,7 @@
           <Property Name="id_cactus" Type="Int32" />
           <Property Name="id_collection" Type="Int32" />
           <NavigationProperty Name="Cactus" Relationship="Self.FK_list_collection_Cactus" FromRole="list_collection" ToRole="Cactus" />
-          <NavigationProperty Name="Collection" Relationship="Self.FK_list_collection_Collection" FromRole="list_collection" ToRole="Collection" />
+          <NavigationProperty Name="Collection1" Relationship="Self.FK_list_collection_Collection" FromRole="list_collection" ToRole="Collection1" />
         </EntityType>
         <EntityType Name="list_exhibition">
           <Key>
@@ -269,10 +270,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_list_collection_Collection">
-          <End Role="Collection" Type="Self.Collection" Multiplicity="0..1" />
+          <End Role="Collection1" Type="Self.Collection1" Multiplicity="0..1" />
           <End Role="list_collection" Type="Self.list_collection" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Collection">
+            <Principal Role="Collection1">
               <PropertyRef Name="id_collection" />
             </Principal>
             <Dependent Role="list_collection">
@@ -294,7 +295,7 @@
         </Association>
         <EntityContainer Name="cactus1337Entities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cactus" EntityType="Self.Cactus" />
-          <EntitySet Name="Collection" EntityType="Self.Collection" />
+          <EntitySet Name="Collection1" EntityType="Self.Collection1" />
           <EntitySet Name="Exhibition" EntityType="Self.Exhibition" />
           <EntitySet Name="instruction" EntityType="Self.instruction" />
           <EntitySet Name="list_collection" EntityType="Self.list_collection" />
@@ -313,7 +314,7 @@
             <End Role="list_exhibition" EntitySet="list_exhibition" />
           </AssociationSet>
           <AssociationSet Name="FK_list_collection_Collection" Association="Self.FK_list_collection_Collection">
-            <End Role="Collection" EntitySet="Collection" />
+            <End Role="Collection1" EntitySet="Collection1" />
             <End Role="list_collection" EntitySet="list_collection" />
           </AssociationSet>
           <AssociationSet Name="FK_list_exhibition_Exhibition" Association="Self.FK_list_exhibition_Exhibition">
@@ -340,9 +341,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Collection">
-            <EntityTypeMapping TypeName="cactus1337Model.Collection">
-              <MappingFragment StoreEntitySet="Collection">
+          <EntitySetMapping Name="Collection1">
+            <EntityTypeMapping TypeName="cactus1337Model.Collection1">
+              <MappingFragment StoreEntitySet="Collection1">
                 <ScalarProperty Name="id_collection" ColumnName="id_collection" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="all_price" ColumnName="all_price" />

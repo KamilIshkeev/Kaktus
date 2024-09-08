@@ -19,6 +19,6 @@ namespace CollectionCactus.BC
         public Nullable<int> id_collection { get; set; }
     
         public virtual Cactus Cactus { get; set; }
-        public virtual Collection Collection { get; set; }
+        public virtual Collection1 Collection1 { get; set; }
     }
 }
