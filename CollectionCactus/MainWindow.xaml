@@ -1,0 +1,15 @@
+﻿<Window x:Class="CollectionCactus.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CollectionCactus"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Frame x:Name="MainFrame"/>
+        <Button Content="Кактусы" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="223,389,0,0" Click="Button_Click" Background="White" BorderBrush="#FF008D13"/>
+        <Button Content="Инструкция" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="438,389,0,0" Click="Button_Click_1" Background="White" BorderBrush="#FF008D13"/>
+        <Button Content="Коллекция" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="334,389,0,0" Click="Button_Click2" Background="White" BorderBrush="#FF008D13"/>
+    </Grid>
+</Window>

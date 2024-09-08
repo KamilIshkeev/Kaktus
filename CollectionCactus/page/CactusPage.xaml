@@ -1,0 +1,48 @@
+﻿<Page x:Class="CollectionCactus.page.CactusPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CollectionCactus.page"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CactusPage" Background="white">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="18*"/>
+        </Grid.RowDefinitions>
+        <Frame x:Name="CactusPageX" Grid.RowSpan="2"/>
+
+        <Grid Grid.RowSpan="2">
+            <ListView Name="ListCactus" ScrollViewer.HorizontalScrollBarVisibility="Hidden" MouseDoubleClick="ListCactus_MouseDoubleClick" Background="White">
+                <ListView.View >
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=id_cactus}" Width="85">ID Кактуса</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=name}" Width="150">Имя Кактуса</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=tipe}" Width="85">Тип Кактуса</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=origin}" Width="100">Происхождение</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=age}" Width="70">Возраст</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=price}" Width="85">Стоиомость</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=id_instruction}" Width="120">Номер инструкции</GridViewColumn>
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                        <Button x:Name="btnDelete" Width="60" Content="Delete" Click="btnDelete_Click" DataContext="this"/>
+                                    </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+                    </GridView>
+                </ListView.View>
+
+
+            </ListView>
+        </Grid>
+
+    </Grid>
+</Page>
