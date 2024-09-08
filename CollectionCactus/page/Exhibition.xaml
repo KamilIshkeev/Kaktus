@@ -1,0 +1,45 @@
+﻿<Page x:Class="CollectionCactus.page.Exhibition"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CollectionCactus.page"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Exhibition">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="18*"/>
+        </Grid.RowDefinitions>
+        <Frame x:Name="ExhibitionPageX" Grid.RowSpan="2"/>
+
+        <Grid Grid.RowSpan="2">
+            <ListView Name="ListExhibition" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Background="White">
+                <ListView.View >
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=id_exhibition}" Width="85">ID Выставки</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=name}" Width="150">Имя Выставки</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=date}" Width="85">Дата</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=place}" Width="100">Место</GridViewColumn>
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button x:Name="btnDelete" Width="60" Content="Delete" Click="btnDelete_Click" DataContext="this"/>
+                                        <Button x:Name="btnAdd" Width="60" Content="Add" Click="btnAdd_Click" DataContext="this"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+                    </GridView>
+                </ListView.View>
+
+
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

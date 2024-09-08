@@ -12,10 +12,10 @@ namespace CollectionCactus.BC
     using System;
     using System.Collections.Generic;
     
-    public partial class Exhibition
+    public partial class Exhibition1
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Exhibition()
+        public Exhibition1()
         {
             this.list_exhibition = new HashSet<list_exhibition>();
         }

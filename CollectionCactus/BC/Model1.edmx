@@ -25,7 +25,7 @@
           <Property Name="name" Type="nvarchar" MaxLength="50" />
           <Property Name="all_price" Type="int" />
         </EntityType>
-        <EntityType Name="Exhibition">
+        <EntityType Name="Exhibition1">
           <Key>
             <PropertyRef Name="id_exhibition" />
           </Key>
@@ -116,10 +116,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_list_exhibition_Exhibition">
-          <End Role="Exhibition" Type="Self.Exhibition" Multiplicity="0..1" />
+          <End Role="Exhibition1" Type="Self.Exhibition1" Multiplicity="0..1" />
           <End Role="list_exhibition" Type="Self.list_exhibition" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Exhibition">
+            <Principal Role="Exhibition1">
               <PropertyRef Name="id_exhibition" />
             </Principal>
             <Dependent Role="list_exhibition">
@@ -130,7 +130,7 @@
         <EntityContainer Name="Хранилище cactus1337ModelContainer">
           <EntitySet Name="Cactus" EntityType="Self.Cactus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Collection1" EntityType="Self.Collection1" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Exhibition" EntityType="Self.Exhibition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exhibition1" EntityType="Self.Exhibition1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="instruction" EntityType="Self.instruction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="list_collection" EntityType="Self.list_collection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="list_exhibition" EntityType="Self.list_exhibition" Schema="dbo" store:Type="Tables" />
@@ -152,7 +152,7 @@
             <End Role="list_exhibition" EntitySet="list_exhibition" />
           </AssociationSet>
           <AssociationSet Name="FK_list_exhibition_Exhibition" Association="Self.FK_list_exhibition_Exhibition">
-            <End Role="Exhibition" EntitySet="Exhibition" />
+            <End Role="Exhibition1" EntitySet="Exhibition1" />
             <End Role="list_exhibition" EntitySet="list_exhibition" />
           </AssociationSet>
         </EntityContainer>
@@ -185,7 +185,7 @@
           <Property Name="all_price" Type="Int32" />
           <NavigationProperty Name="list_collection" Relationship="Self.FK_list_collection_Collection" FromRole="Collection1" ToRole="list_collection" />
         </EntityType>
-        <EntityType Name="Exhibition">
+        <EntityType Name="Exhibition1">
           <Key>
             <PropertyRef Name="id_exhibition" />
           </Key>
@@ -193,7 +193,7 @@
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="date" Type="DateTime" Precision="0" />
           <Property Name="place" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="list_exhibition" Relationship="Self.FK_list_exhibition_Exhibition" FromRole="Exhibition" ToRole="list_exhibition" />
+          <NavigationProperty Name="list_exhibition" Relationship="Self.FK_list_exhibition_Exhibition" FromRole="Exhibition1" ToRole="list_exhibition" />
         </EntityType>
         <EntityType Name="instruction">
           <Key>
@@ -221,7 +221,7 @@
           <Property Name="id_cactus" Type="Int32" />
           <Property Name="id_exhibition" Type="Int32" />
           <NavigationProperty Name="Cactus" Relationship="Self.FK_list_exhibition_Cactus" FromRole="list_exhibition" ToRole="Cactus" />
-          <NavigationProperty Name="Exhibition" Relationship="Self.FK_list_exhibition_Exhibition" FromRole="list_exhibition" ToRole="Exhibition" />
+          <NavigationProperty Name="Exhibition1" Relationship="Self.FK_list_exhibition_Exhibition" FromRole="list_exhibition" ToRole="Exhibition1" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -282,10 +282,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_list_exhibition_Exhibition">
-          <End Role="Exhibition" Type="Self.Exhibition" Multiplicity="0..1" />
+          <End Role="Exhibition1" Type="Self.Exhibition1" Multiplicity="0..1" />
           <End Role="list_exhibition" Type="Self.list_exhibition" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Exhibition">
+            <Principal Role="Exhibition1">
               <PropertyRef Name="id_exhibition" />
             </Principal>
             <Dependent Role="list_exhibition">
@@ -296,7 +296,7 @@
         <EntityContainer Name="cactus1337Entities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cactus" EntityType="Self.Cactus" />
           <EntitySet Name="Collection1" EntityType="Self.Collection1" />
-          <EntitySet Name="Exhibition" EntityType="Self.Exhibition" />
+          <EntitySet Name="Exhibition1" EntityType="Self.Exhibition1" />
           <EntitySet Name="instruction" EntityType="Self.instruction" />
           <EntitySet Name="list_collection" EntityType="Self.list_collection" />
           <EntitySet Name="list_exhibition" EntityType="Self.list_exhibition" />
@@ -318,7 +318,7 @@
             <End Role="list_collection" EntitySet="list_collection" />
           </AssociationSet>
           <AssociationSet Name="FK_list_exhibition_Exhibition" Association="Self.FK_list_exhibition_Exhibition">
-            <End Role="Exhibition" EntitySet="Exhibition" />
+            <End Role="Exhibition1" EntitySet="Exhibition1" />
             <End Role="list_exhibition" EntitySet="list_exhibition" />
           </AssociationSet>
         </EntityContainer>
@@ -350,9 +350,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Exhibition">
-            <EntityTypeMapping TypeName="cactus1337Model.Exhibition">
-              <MappingFragment StoreEntitySet="Exhibition">
+          <EntitySetMapping Name="Exhibition1">
+            <EntityTypeMapping TypeName="cactus1337Model.Exhibition1">
+              <MappingFragment StoreEntitySet="Exhibition1">
                 <ScalarProperty Name="id_exhibition" ColumnName="id_exhibition" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="date" ColumnName="date" />

@@ -42,5 +42,9 @@ namespace CollectionCactus
             MainFrame.NavigationService.Navigate(new Collection(this));
         }
 
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            MainFrame.NavigationService.Navigate(new Exhibition(this));
+        }
     }
 }

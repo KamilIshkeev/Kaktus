@@ -19,6 +19,6 @@ namespace CollectionCactus.BC
         public Nullable<int> id_exhibition { get; set; }
     
         public virtual Cactus Cactus { get; set; }
-        public virtual Exhibition Exhibition { get; set; }
+        public virtual Exhibition1 Exhibition1 { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace CollectionCactus.BC
     
         public virtual DbSet<Cactus> Cactus { get; set; }
         public virtual DbSet<Collection1> Collection1 { get; set; }
-        public virtual DbSet<Exhibition> Exhibition { get; set; }
+        public virtual DbSet<Exhibition1> Exhibition1 { get; set; }
         public virtual DbSet<instruction> instruction { get; set; }
         public virtual DbSet<list_collection> list_collection { get; set; }
         public virtual DbSet<list_exhibition> list_exhibition { get; set; }
