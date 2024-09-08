@@ -39,8 +39,8 @@ namespace CollectionCactus.page
 
             if (ListCollection.SelectedItem != null)
             {
-                int idSelectedPerson = (ListCollection.SelectedItem as Collection1).id_collection;
-                Collection1 collect = (from c in connect.db.Collection1 where c.id_collection == idSelectedPerson select c).SingleOrDefault();
+                int idSelectedCollection = (ListCollection.SelectedItem as Collection1).id_collection;
+                Collection1 collect = (from r in connect.db.Collection1 where r.id_collection == idSelectedCollection select r).SingleOrDefault();
                 connect.db.Collection1.Remove(collect);
                 connect.db.SaveChanges();
                 ListCollection.ItemsSource = connect.db.Collection1.ToList();

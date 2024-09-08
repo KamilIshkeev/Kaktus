@@ -32,7 +32,7 @@ namespace CollectionCactus.page
             InitializeComponent();
             _mainWinsow = mainWindow;
 
-            
+
 
             ListCactus.ItemsSource = connect.db.Cactus.ToList();
         }
@@ -60,20 +60,33 @@ namespace CollectionCactus.page
 
             }
 
-           
+
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            
-            //ListCactus.Items.Add();
+            //if (ListCactus.SelectedItem != null)
+            //{
+            //    int idSelectedCactus = (ListCactus.SelectedItem as Cactus).id_cactus;
+            //    //    connect.db.Cactus.Remove();
+            //    ListCactus.Items.Add(new ListViewItem { Content = new ContainerItem() { "1", "magenta", "cyan", "yellow", "1200", "1" } });
+
+
+
+            //        //ListCactus.Items.Add();
+
+            //else
+            //    {
+            //        MessageBox.Show("Для удаления выберите строку");
+
+            //    }
+            //}
         }
-    }
 
 
 
 
-}
+    } }
 
 
 
