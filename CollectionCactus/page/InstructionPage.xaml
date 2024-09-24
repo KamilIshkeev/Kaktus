@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CollectionCactus.page"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="900"
       Title="InstructionPage" Background="white">
 
     <Grid>
@@ -19,7 +19,16 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=id_instruction}" Width="85">ID инструкции</GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=description}" Width="850">Описание</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=description}" Width="500">Описание</GridViewColumn>
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button x:Name="btnDelete" Width="60" Content="Delete" Click="btnDelete_Click" DataContext="this"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
                 

@@ -32,15 +32,8 @@ namespace CollectionCactus.page
             InitializeComponent();
             _mainWinsow = mainWindow;
 
-
-
             ListCactus.ItemsSource = connect.db.Cactus.ToList();
         }
-
-        //private void ListCactus_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        //{
-        //    var temp = (Cactus)ListCactus.SelectedItem;
-        //}
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -62,31 +55,93 @@ namespace CollectionCactus.page
 
 
         }
-
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //if (ListCactus.SelectedItem != null)
-            //{
-            //    int idSelectedCactus = (ListCactus.SelectedItem as Cactus).id_cactus;
-            //    //    connect.db.Cactus.Remove();
-            //    ListCactus.Items.Add(new ListViewItem { Content = new ContainerItem() { "1", "magenta", "cyan", "yellow", "1200", "1" } });
+            var idkak = Convert.ToInt32(id_kak.Text);
+            string names = name_kak.Text;
+            string typs = type.Text;
+            string proish = prois.Text;
+            var agess = Convert.ToInt32(ages.Text);
+            var pricesss = Convert.ToInt32(prices.Text);
+            var numsss_instr = Convert.ToInt32(num_instr.Text);
 
+            var kak = connect.db.Cactus.FirstOrDefault(id => id.id_cactus == idkak && id.name == names && id.price == pricesss && id.age == agess && id.origin == proish && id.id_instruction == numsss_instr && id.tipe == typs);
 
+            var kakTus = new Cactus()
+            {
+                id_cactus = idkak,
+                name = names,
+                price = pricesss,
+                origin = proish,
+                age = agess,
+                tipe = typs,
+                id_instruction = numsss_instr
+            };
 
-            //        //ListCactus.Items.Add();
-
-            //else
-            //    {
-            //        MessageBox.Show("Для удаления выберите строку");
-
-            //    }
-            //}
+            connect.db.Cactus.Add(kakTus);
+            connect.db.SaveChanges();
+            MessageBox.Show("Кактус успешно был добавлен");
+            return;
         }
 
+        private void Button_Click1(object sender, RoutedEventArgs e)
+        {
+            if (ListCactus.SelectedItem != null)
+            {
+                int i = 0;
+                if (i == 0)
+                {
+                    int id_selcactus = (ListCactus.SelectedItem as Cactus).id_cactus;
+                    id_kak.Text = Convert.ToString(id_selcactus);
+                    i++;
+                }
+                else if (i == 1)
+                {
+                    if (ListCactus.SelectedItem != null)
+                    {
 
+                        //id_kak.Text = id_cactus;
+                        int idSelectedCactus = (ListCactus.SelectedItem as Cactus).id_cactus;
+                        Cactus cactus = (from r in connect.db.Cactus where r.id_cactus == idSelectedCactus select r).SingleOrDefault();
+                        connect.db.Cactus.Remove(cactus);
+                        connect.db.SaveChanges();
+                        ListCactus.ItemsSource = connect.db.Cactus.ToList();
 
+                        var idkak = Convert.ToInt32(id_kak.Text);
+                        string names = name_kak.Text;
+                        string typs = type.Text;
+                        string proish = prois.Text;
+                        var agess = Convert.ToInt32(ages.Text);
+                        var pricesss = Convert.ToInt32(prices.Text);
+                        var numsss_instr = Convert.ToInt32(num_instr.Text);
 
-    } }
+                        var kak = connect.db.Cactus.FirstOrDefault(id => id.id_cactus == idkak && id.name == names && id.price == pricesss && id.age == agess && id.origin == proish && id.id_instruction == numsss_instr && id.tipe == typs);
+
+                        var kakTus = new Cactus()
+                        {
+                            id_cactus = idkak,
+                            name = names,
+                            price = pricesss,
+                            origin = proish,
+                            age = agess,
+                            tipe = typs,
+                            id_instruction = numsss_instr
+                        };
+                        connect.db.Cactus.Add(kakTus);
+                        connect.db.SaveChanges();
+                        MessageBox.Show("Кактус был успешно редактирован");
+                        return;
+                    }
+
+                }
+            }
+          
+
+           
+        }
+    }
+
+    } 
 
 
 

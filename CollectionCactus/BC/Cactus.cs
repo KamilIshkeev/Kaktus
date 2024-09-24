@@ -17,8 +17,8 @@ namespace CollectionCactus.BC
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Cactus()
         {
-            this.list_collection = new HashSet<list_collection>();
-            this.list_exhibition = new HashSet<list_exhibition>();
+            this.list_collection1 = new HashSet<list_collection1>();
+            this.list_exhibition1 = new HashSet<list_exhibition1>();
         }
     
         public int id_cactus { get; set; }
@@ -31,8 +31,8 @@ namespace CollectionCactus.BC
     
         public virtual instruction instruction { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<list_collection> list_collection { get; set; }
+        public virtual ICollection<list_collection1> list_collection1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<list_exhibition> list_exhibition { get; set; }
+        public virtual ICollection<list_exhibition1> list_exhibition1 { get; set; }
     }
 }

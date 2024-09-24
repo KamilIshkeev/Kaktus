@@ -1,6 +1,8 @@
-﻿using System;
+﻿using CollectionCactus.BC;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,35 +14,34 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CollectionCactus.page;
-using CollectionCactus.BC;
+using CollectionCactus;
+
 
 namespace CollectionCactus.page
 {
     /// <summary>
-    /// Логика взаимодействия для Instruction.xaml
+    /// Логика взаимодействия для list_exhibition.xaml
     /// </summary>
-    /// 
-    public partial class Instruction : Page
+    public partial class list_exhibition : Page
     {
         static MainWindow _mainWinsow;
-        public Instruction(MainWindow mainWindow)
+        public list_exhibition(MainWindow mainWindow)
         {
             InitializeComponent();
             _mainWinsow = mainWindow;
-            Instructio.ItemsSource = connect.db.instruction.ToList();
+            Listexhibitions.ItemsSource = connect.db.list_exhibition1.ToList();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
 
-            if (Instructio.SelectedItem != null)
+            if (Listexhibitions.SelectedItem != null)
             {
-                int idSelectedinstruction = (Instructio.SelectedItem as instruction).id_instruction;
-                instruction instruction = (from r in connect.db.instruction where r.id_instruction == idSelectedinstruction select r).SingleOrDefault();
-                connect.db.instruction.Remove(instruction);
+                int idSelectedLisstexhibition = (Listexhibitions.SelectedItem as list_exhibition1).id_list_exhibition;
+                list_exhibition1 listexhibition = (from r in connect.db.list_exhibition1 where r.id_list_exhibition == idSelectedLisstexhibition select r).SingleOrDefault();
+                connect.db.list_exhibition1.Remove(listexhibition);
                 connect.db.SaveChanges();
-                Instructio.ItemsSource = connect.db.instruction.ToList();
+                Listexhibitions.ItemsSource = connect.db.list_exhibition1.ToList();
                 MessageBox.Show("Инструкция удалена");
             }
             else
@@ -49,10 +50,6 @@ namespace CollectionCactus.page
 
             }
 
-
         }
-
     }
-
-
 }

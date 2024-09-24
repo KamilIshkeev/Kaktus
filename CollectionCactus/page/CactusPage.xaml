@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CollectionCactus.page"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="900"
       Title="CactusPage" Background="white">
 
     <Grid>
@@ -16,7 +16,7 @@
         <Frame x:Name="CactusPageX" Grid.RowSpan="2"/>
 
         <Grid Grid.RowSpan="2">
-            <ListView Name="ListCactus" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Background="White">
+            <ListView Name="ListCactus" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Background="White" Margin="0,0,0,200">
                 <ListView.View >
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=id_cactus}" Width="85">ID Кактуса</GridViewColumn>
@@ -24,17 +24,16 @@
                         <GridViewColumn DisplayMemberBinding="{Binding Path=tipe}" Width="85">Тип Кактуса</GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=origin}" Width="100">Происхождение</GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=age}" Width="70">Возраст</GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=price}" Width="85">Стоиомость</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=price}" Width="85">Стоимость</GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=id_instruction}" Width="120">Номер инструкции</GridViewColumn>
                         <GridViewColumn>
                             <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                        <Button x:Name="btnDelete" Width="60" Content="Delete" Click="btnDelete_Click" DataContext="this"/>
-                                        <Button x:Name="btnAdd" Width="60" Content="Add" Click="btnAdd_Click" DataContext="this"/>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button x:Name="btnDelete" Width="60" Content="Delete" Click="btnDelete_Click" DataContext="this" Background="White" BorderBrush="#FF008D13"/>
                                     </StackPanel>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
 
@@ -43,6 +42,15 @@
 
 
             </ListView>
+            <TextBox x:Name="id_kak" HorizontalAlignment="Left" Height="21" Margin="10,330,0,0" TextWrapping="Wrap" Text="ID Кактуса" VerticalAlignment="Top" Width="100"/>
+            <TextBox x:Name="name_kak" HorizontalAlignment="Left" Height="21" Margin="132,330,0,0" TextWrapping="Wrap" Text="Имя кактуса" VerticalAlignment="Top" Width="100"/>
+            <TextBox x:Name="type" HorizontalAlignment="Left" Height="21" Margin="259,330,0,0" TextWrapping="Wrap" Text="Тип" VerticalAlignment="Top" Width="100"/>
+            <TextBox x:Name="prois" HorizontalAlignment="Left" Height="21" Margin="394,330,0,0" TextWrapping="Wrap" Text="Происхождение" VerticalAlignment="Top" Width="100"/>
+            <TextBox x:Name="ages" HorizontalAlignment="Left" Height="21" Margin="520,330,0,0" TextWrapping="Wrap" Text="Возраст" VerticalAlignment="Top" Width="100"/>
+            <TextBox x:Name="prices" HorizontalAlignment="Left" Height="21" Margin="643,330,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="100"/>
+            <TextBox x:Name="num_instr" HorizontalAlignment="Left" Height="21" Margin="765,330,0,0" TextWrapping="Wrap" Text="Номер инструкции" VerticalAlignment="Top" Width="100"/>
+            <Button Content="Добавить" HorizontalAlignment="Left" Height="35" Margin="765,364,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click" Background="White" BorderBrush="#FF008D13"/>
+            <Button Content="Начать редактирование" HorizontalAlignment="Left" Height="35" Margin="690,280,0,0" VerticalAlignment="Top" Width="175" Click="Button_Click1" Background="White" BorderBrush="#FF008D13"/>
         </Grid>
 
     </Grid>

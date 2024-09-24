@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="71032ca6ab104439bd11746211a30196" Name="Diagram1">
-        <EntityTypeShape EntityType="cactus1337Model.Cactus" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="cactus1337Model.Collection1" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="cactus1337Model.Exhibition1" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="cactus1337Model.instruction" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="cactus1337Model.list_collection" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cactus1337Model.list_exhibition" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cactus1337Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
-        <AssociationConnector Association="cactus1337Model.FK_Cactus_instruction" ManuallyRouted="false" />
-        <AssociationConnector Association="cactus1337Model.FK_list_collection_Cactus" ManuallyRouted="false" />
-        <AssociationConnector Association="cactus1337Model.FK_list_exhibition_Cactus" ManuallyRouted="false" />
-        <AssociationConnector Association="cactus1337Model.FK_list_collection_Collection" ManuallyRouted="false" />
-        <AssociationConnector Association="cactus1337Model.FK_list_exhibition_Exhibition" ManuallyRouted="false" />
+      <Diagram DiagramId="3983d503ce6d4279b45ffb08ab17203b" Name="Diagram1">
+        <EntityTypeShape EntityType="kollectionModel.Cactus" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kollectionModel.Collection1" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kollectionModel.Exhibition1" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kollectionModel.instruction" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="kollectionModel.list_collection1" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kollectionModel.list_exhibition1" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kollectionModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="kollectionModel.FK_Cactus_instruction" ManuallyRouted="false" />
+        <AssociationConnector Association="kollectionModel.FK_list_collection_Cactus" ManuallyRouted="false" />
+        <AssociationConnector Association="kollectionModel.FK_list_exhibition_Cactus" ManuallyRouted="false" />
+        <AssociationConnector Association="kollectionModel.FK_list_collection_Collection" ManuallyRouted="false" />
+        <AssociationConnector Association="kollectionModel.FK_list_exhibition_Exhibition" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

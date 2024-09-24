@@ -12,13 +12,13 @@ namespace CollectionCactus.BC
     using System;
     using System.Collections.Generic;
     
-    public partial class list_exhibition
+    public partial class list_collection1
     {
-        public int id_list_exhibition { get; set; }
+        public int id_list_collection { get; set; }
         public Nullable<int> id_cactus { get; set; }
-        public Nullable<int> id_exhibition { get; set; }
+        public Nullable<int> id_collection { get; set; }
     
         public virtual Cactus Cactus { get; set; }
-        public virtual Exhibition1 Exhibition1 { get; set; }
+        public virtual Collection1 Collection1 { get; set; }
     }
 }

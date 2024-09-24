@@ -5,12 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CollectionCactus"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="900">
     <Grid>
         <Frame x:Name="MainFrame"/>
         <Button Content="Кактусы" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="223,389,0,0" Click="Button_Click" Background="White" BorderBrush="#FF008D13"/>
         <Button Content="Инструкция" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="438,389,0,0" Click="Button_Click_1" Background="White" BorderBrush="#FF008D13"/>
         <Button Content="Коллекция" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="334,389,0,0" Click="Button_Click2" Background="White" BorderBrush="#FF008D13"/>
         <Button Content="Выставка" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="545,389,0,0"  Background="White" BorderBrush="#FF008D13" Click="Button_Click_2"/>
+        <Button Content="Список коллекции" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="652,389,0,0"  Background="White" BorderBrush="#FF008D13" Click="Button_Click_3"/>
+        <Button Content="Список выставки" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="93,389,0,0"  Background="White" BorderBrush="#FF008D13" Click="Button_Click_4"/>
+        <Button Content="⟳" HorizontalAlignment="Left" Height="20" Margin="55,389,0,0" VerticalAlignment="Top" Width="20" Background="White" BorderBrush="#FF008D13" Click="Button_Click_5"/>
     </Grid>
 </Window>

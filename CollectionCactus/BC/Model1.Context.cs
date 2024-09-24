@@ -13,10 +13,10 @@ namespace CollectionCactus.BC
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class cactus1337Entities4 : DbContext
+    public partial class kollectionEntities1 : DbContext
     {
-        public cactus1337Entities4()
-            : base("name=cactus1337Entities4")
+        public kollectionEntities1()
+            : base("name=kollectionEntities1")
         {
         }
     
@@ -29,8 +29,8 @@ namespace CollectionCactus.BC
         public virtual DbSet<Collection1> Collection1 { get; set; }
         public virtual DbSet<Exhibition1> Exhibition1 { get; set; }
         public virtual DbSet<instruction> instruction { get; set; }
-        public virtual DbSet<list_collection> list_collection { get; set; }
-        public virtual DbSet<list_exhibition> list_exhibition { get; set; }
+        public virtual DbSet<list_collection1> list_collection1 { get; set; }
+        public virtual DbSet<list_exhibition1> list_exhibition1 { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

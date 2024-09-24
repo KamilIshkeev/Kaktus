@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CollectionCactus.page"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="900"
       Title="Exhibition">
 
     <Grid>
@@ -16,12 +16,12 @@
         <Frame x:Name="ExhibitionPageX" Grid.RowSpan="2"/>
 
         <Grid Grid.RowSpan="2">
-            <ListView Name="ListExhibition" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Background="White">
+            <ListView Name="ListExhibition" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Background="White" SelectionChanged="ListExhibition_SelectionChanged">
                 <ListView.View >
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=id_exhibition}" Width="85">ID Выставки</GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=name}" Width="150">Имя Выставки</GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=date}" Width="85">Дата</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=date}" Width="100">Дата</GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=place}" Width="100">Место</GridViewColumn>
                         <GridViewColumn>
                             <GridViewColumn.CellTemplate>

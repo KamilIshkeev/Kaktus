@@ -9,7 +9,7 @@ namespace CollectionCactus.BC
 {
     public class connect
     {
-        public static cactus1337Entities4 db = new cactus1337Entities4();
+        public static kollectionEntities1 db = new kollectionEntities1();
         public static CactusPage user;
     }
 }

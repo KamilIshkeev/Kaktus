@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище cactus1337Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище kollectionModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cactus">
           <Key>
             <PropertyRef Name="id_cactus" />
@@ -41,7 +41,7 @@
           <Property Name="id_instruction" Type="int" Nullable="false" />
           <Property Name="description" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="list_collection">
+        <EntityType Name="list_collection1">
           <Key>
             <PropertyRef Name="id_list_collection" />
           </Key>
@@ -49,7 +49,7 @@
           <Property Name="id_cactus" Type="int" />
           <Property Name="id_collection" Type="int" />
         </EntityType>
-        <EntityType Name="list_exhibition">
+        <EntityType Name="list_exhibition1">
           <Key>
             <PropertyRef Name="id_list_exhibition" />
           </Key>
@@ -80,60 +80,68 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_list_collection_Cactus">
-          <End Role="Cactus" Type="Self.Cactus" Multiplicity="0..1" />
-          <End Role="list_collection" Type="Self.list_collection" Multiplicity="*" />
+          <End Role="Cactus" Type="Self.Cactus" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="list_collection1" Type="Self.list_collection1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cactus">
               <PropertyRef Name="id_cactus" />
             </Principal>
-            <Dependent Role="list_collection">
+            <Dependent Role="list_collection1">
               <PropertyRef Name="id_cactus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_list_collection_Collection">
-          <End Role="Collection1" Type="Self.Collection1" Multiplicity="0..1" />
-          <End Role="list_collection" Type="Self.list_collection" Multiplicity="*" />
+          <End Role="Collection1" Type="Self.Collection1" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="list_collection1" Type="Self.list_collection1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Collection1">
               <PropertyRef Name="id_collection" />
             </Principal>
-            <Dependent Role="list_collection">
+            <Dependent Role="list_collection1">
               <PropertyRef Name="id_collection" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_list_exhibition_Cactus">
-          <End Role="Cactus" Type="Self.Cactus" Multiplicity="0..1" />
-          <End Role="list_exhibition" Type="Self.list_exhibition" Multiplicity="*" />
+          <End Role="Cactus" Type="Self.Cactus" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="list_exhibition1" Type="Self.list_exhibition1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cactus">
               <PropertyRef Name="id_cactus" />
             </Principal>
-            <Dependent Role="list_exhibition">
+            <Dependent Role="list_exhibition1">
               <PropertyRef Name="id_cactus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_list_exhibition_Exhibition">
-          <End Role="Exhibition1" Type="Self.Exhibition1" Multiplicity="0..1" />
-          <End Role="list_exhibition" Type="Self.list_exhibition" Multiplicity="*" />
+          <End Role="Exhibition1" Type="Self.Exhibition1" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="list_exhibition1" Type="Self.list_exhibition1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Exhibition1">
               <PropertyRef Name="id_exhibition" />
             </Principal>
-            <Dependent Role="list_exhibition">
+            <Dependent Role="list_exhibition1">
               <PropertyRef Name="id_exhibition" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище cactus1337ModelContainer">
+        <EntityContainer Name="Хранилище kollectionModelContainer">
           <EntitySet Name="Cactus" EntityType="Self.Cactus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Collection1" EntityType="Self.Collection1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Exhibition1" EntityType="Self.Exhibition1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="instruction" EntityType="Self.instruction" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="list_collection" EntityType="Self.list_collection" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="list_exhibition" EntityType="Self.list_exhibition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="list_collection1" EntityType="Self.list_collection1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="list_exhibition1" EntityType="Self.list_exhibition1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Cactus_instruction" Association="Self.FK_Cactus_instruction">
             <End Role="instruction" EntitySet="instruction" />
@@ -141,26 +149,26 @@
           </AssociationSet>
           <AssociationSet Name="FK_list_collection_Cactus" Association="Self.FK_list_collection_Cactus">
             <End Role="Cactus" EntitySet="Cactus" />
-            <End Role="list_collection" EntitySet="list_collection" />
+            <End Role="list_collection1" EntitySet="list_collection1" />
           </AssociationSet>
           <AssociationSet Name="FK_list_collection_Collection" Association="Self.FK_list_collection_Collection">
             <End Role="Collection1" EntitySet="Collection1" />
-            <End Role="list_collection" EntitySet="list_collection" />
+            <End Role="list_collection1" EntitySet="list_collection1" />
           </AssociationSet>
           <AssociationSet Name="FK_list_exhibition_Cactus" Association="Self.FK_list_exhibition_Cactus">
             <End Role="Cactus" EntitySet="Cactus" />
-            <End Role="list_exhibition" EntitySet="list_exhibition" />
+            <End Role="list_exhibition1" EntitySet="list_exhibition1" />
           </AssociationSet>
           <AssociationSet Name="FK_list_exhibition_Exhibition" Association="Self.FK_list_exhibition_Exhibition">
             <End Role="Exhibition1" EntitySet="Exhibition1" />
-            <End Role="list_exhibition" EntitySet="list_exhibition" />
+            <End Role="list_exhibition1" EntitySet="list_exhibition1" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="cactus1337Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="kollectionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Cactus">
           <Key>
             <PropertyRef Name="id_cactus" />
@@ -173,8 +181,8 @@
           <Property Name="price" Type="Int32" />
           <Property Name="id_instruction" Type="Int32" />
           <NavigationProperty Name="instruction" Relationship="Self.FK_Cactus_instruction" FromRole="Cactus" ToRole="instruction" />
-          <NavigationProperty Name="list_collection" Relationship="Self.FK_list_collection_Cactus" FromRole="Cactus" ToRole="list_collection" />
-          <NavigationProperty Name="list_exhibition" Relationship="Self.FK_list_exhibition_Cactus" FromRole="Cactus" ToRole="list_exhibition" />
+          <NavigationProperty Name="list_collection1" Relationship="Self.FK_list_collection_Cactus" FromRole="Cactus" ToRole="list_collection1" />
+          <NavigationProperty Name="list_exhibition1" Relationship="Self.FK_list_exhibition_Cactus" FromRole="Cactus" ToRole="list_exhibition1" />
         </EntityType>
         <EntityType Name="Collection1">
           <Key>
@@ -183,7 +191,7 @@
           <Property Name="id_collection" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="all_price" Type="Int32" />
-          <NavigationProperty Name="list_collection" Relationship="Self.FK_list_collection_Collection" FromRole="Collection1" ToRole="list_collection" />
+          <NavigationProperty Name="list_collection1" Relationship="Self.FK_list_collection_Collection" FromRole="Collection1" ToRole="list_collection1" />
         </EntityType>
         <EntityType Name="Exhibition1">
           <Key>
@@ -193,7 +201,7 @@
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="date" Type="DateTime" Precision="0" />
           <Property Name="place" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="list_exhibition" Relationship="Self.FK_list_exhibition_Exhibition" FromRole="Exhibition1" ToRole="list_exhibition" />
+          <NavigationProperty Name="list_exhibition1" Relationship="Self.FK_list_exhibition_Exhibition" FromRole="Exhibition1" ToRole="list_exhibition1" />
         </EntityType>
         <EntityType Name="instruction">
           <Key>
@@ -203,25 +211,25 @@
           <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Cactus" Relationship="Self.FK_Cactus_instruction" FromRole="instruction" ToRole="Cactus" />
         </EntityType>
-        <EntityType Name="list_collection">
+        <EntityType Name="list_collection1">
           <Key>
             <PropertyRef Name="id_list_collection" />
           </Key>
           <Property Name="id_list_collection" Type="Int32" Nullable="false" />
           <Property Name="id_cactus" Type="Int32" />
           <Property Name="id_collection" Type="Int32" />
-          <NavigationProperty Name="Cactus" Relationship="Self.FK_list_collection_Cactus" FromRole="list_collection" ToRole="Cactus" />
-          <NavigationProperty Name="Collection1" Relationship="Self.FK_list_collection_Collection" FromRole="list_collection" ToRole="Collection1" />
+          <NavigationProperty Name="Cactus" Relationship="Self.FK_list_collection_Cactus" FromRole="list_collection1" ToRole="Cactus" />
+          <NavigationProperty Name="Collection1" Relationship="Self.FK_list_collection_Collection" FromRole="list_collection1" ToRole="Collection1" />
         </EntityType>
-        <EntityType Name="list_exhibition">
+        <EntityType Name="list_exhibition1">
           <Key>
             <PropertyRef Name="id_list_exhibition" />
           </Key>
           <Property Name="id_list_exhibition" Type="Int32" Nullable="false" />
           <Property Name="id_cactus" Type="Int32" />
           <Property Name="id_exhibition" Type="Int32" />
-          <NavigationProperty Name="Cactus" Relationship="Self.FK_list_exhibition_Cactus" FromRole="list_exhibition" ToRole="Cactus" />
-          <NavigationProperty Name="Exhibition1" Relationship="Self.FK_list_exhibition_Exhibition" FromRole="list_exhibition" ToRole="Exhibition1" />
+          <NavigationProperty Name="Cactus" Relationship="Self.FK_list_exhibition_Cactus" FromRole="list_exhibition1" ToRole="Cactus" />
+          <NavigationProperty Name="Exhibition1" Relationship="Self.FK_list_exhibition_Exhibition" FromRole="list_exhibition1" ToRole="Exhibition1" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -246,60 +254,68 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_list_collection_Cactus">
-          <End Role="Cactus" Type="Self.Cactus" Multiplicity="0..1" />
-          <End Role="list_collection" Type="Self.list_collection" Multiplicity="*" />
+          <End Role="Cactus" Type="Self.Cactus" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="list_collection1" Type="Self.list_collection1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cactus">
               <PropertyRef Name="id_cactus" />
             </Principal>
-            <Dependent Role="list_collection">
+            <Dependent Role="list_collection1">
               <PropertyRef Name="id_cactus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_list_exhibition_Cactus">
-          <End Role="Cactus" Type="Self.Cactus" Multiplicity="0..1" />
-          <End Role="list_exhibition" Type="Self.list_exhibition" Multiplicity="*" />
+          <End Role="Cactus" Type="Self.Cactus" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="list_exhibition1" Type="Self.list_exhibition1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cactus">
               <PropertyRef Name="id_cactus" />
             </Principal>
-            <Dependent Role="list_exhibition">
+            <Dependent Role="list_exhibition1">
               <PropertyRef Name="id_cactus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_list_collection_Collection">
-          <End Role="Collection1" Type="Self.Collection1" Multiplicity="0..1" />
-          <End Role="list_collection" Type="Self.list_collection" Multiplicity="*" />
+          <End Role="Collection1" Type="Self.Collection1" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="list_collection1" Type="Self.list_collection1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Collection1">
               <PropertyRef Name="id_collection" />
             </Principal>
-            <Dependent Role="list_collection">
+            <Dependent Role="list_collection1">
               <PropertyRef Name="id_collection" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_list_exhibition_Exhibition">
-          <End Role="Exhibition1" Type="Self.Exhibition1" Multiplicity="0..1" />
-          <End Role="list_exhibition" Type="Self.list_exhibition" Multiplicity="*" />
+          <End Role="Exhibition1" Type="Self.Exhibition1" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="list_exhibition1" Type="Self.list_exhibition1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Exhibition1">
               <PropertyRef Name="id_exhibition" />
             </Principal>
-            <Dependent Role="list_exhibition">
+            <Dependent Role="list_exhibition1">
               <PropertyRef Name="id_exhibition" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="cactus1337Entities4" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="kollectionEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cactus" EntityType="Self.Cactus" />
           <EntitySet Name="Collection1" EntityType="Self.Collection1" />
           <EntitySet Name="Exhibition1" EntityType="Self.Exhibition1" />
           <EntitySet Name="instruction" EntityType="Self.instruction" />
-          <EntitySet Name="list_collection" EntityType="Self.list_collection" />
-          <EntitySet Name="list_exhibition" EntityType="Self.list_exhibition" />
+          <EntitySet Name="list_collection1" EntityType="Self.list_collection1" />
+          <EntitySet Name="list_exhibition1" EntityType="Self.list_exhibition1" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <AssociationSet Name="FK_Cactus_instruction" Association="Self.FK_Cactus_instruction">
             <End Role="instruction" EntitySet="instruction" />
@@ -307,19 +323,19 @@
           </AssociationSet>
           <AssociationSet Name="FK_list_collection_Cactus" Association="Self.FK_list_collection_Cactus">
             <End Role="Cactus" EntitySet="Cactus" />
-            <End Role="list_collection" EntitySet="list_collection" />
+            <End Role="list_collection1" EntitySet="list_collection1" />
           </AssociationSet>
           <AssociationSet Name="FK_list_exhibition_Cactus" Association="Self.FK_list_exhibition_Cactus">
             <End Role="Cactus" EntitySet="Cactus" />
-            <End Role="list_exhibition" EntitySet="list_exhibition" />
+            <End Role="list_exhibition1" EntitySet="list_exhibition1" />
           </AssociationSet>
           <AssociationSet Name="FK_list_collection_Collection" Association="Self.FK_list_collection_Collection">
             <End Role="Collection1" EntitySet="Collection1" />
-            <End Role="list_collection" EntitySet="list_collection" />
+            <End Role="list_collection1" EntitySet="list_collection1" />
           </AssociationSet>
           <AssociationSet Name="FK_list_exhibition_Exhibition" Association="Self.FK_list_exhibition_Exhibition">
             <End Role="Exhibition1" EntitySet="Exhibition1" />
-            <End Role="list_exhibition" EntitySet="list_exhibition" />
+            <End Role="list_exhibition1" EntitySet="list_exhibition1" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -327,9 +343,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище cactus1337ModelContainer" CdmEntityContainer="cactus1337Entities4">
+        <EntityContainerMapping StorageEntityContainer="Хранилище kollectionModelContainer" CdmEntityContainer="kollectionEntities1">
           <EntitySetMapping Name="Cactus">
-            <EntityTypeMapping TypeName="cactus1337Model.Cactus">
+            <EntityTypeMapping TypeName="kollectionModel.Cactus">
               <MappingFragment StoreEntitySet="Cactus">
                 <ScalarProperty Name="id_cactus" ColumnName="id_cactus" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -342,7 +358,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Collection1">
-            <EntityTypeMapping TypeName="cactus1337Model.Collection1">
+            <EntityTypeMapping TypeName="kollectionModel.Collection1">
               <MappingFragment StoreEntitySet="Collection1">
                 <ScalarProperty Name="id_collection" ColumnName="id_collection" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -351,7 +367,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Exhibition1">
-            <EntityTypeMapping TypeName="cactus1337Model.Exhibition1">
+            <EntityTypeMapping TypeName="kollectionModel.Exhibition1">
               <MappingFragment StoreEntitySet="Exhibition1">
                 <ScalarProperty Name="id_exhibition" ColumnName="id_exhibition" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -361,25 +377,25 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="instruction">
-            <EntityTypeMapping TypeName="cactus1337Model.instruction">
+            <EntityTypeMapping TypeName="kollectionModel.instruction">
               <MappingFragment StoreEntitySet="instruction">
                 <ScalarProperty Name="id_instruction" ColumnName="id_instruction" />
                 <ScalarProperty Name="description" ColumnName="description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="list_collection">
-            <EntityTypeMapping TypeName="cactus1337Model.list_collection">
-              <MappingFragment StoreEntitySet="list_collection">
+          <EntitySetMapping Name="list_collection1">
+            <EntityTypeMapping TypeName="kollectionModel.list_collection1">
+              <MappingFragment StoreEntitySet="list_collection1">
                 <ScalarProperty Name="id_list_collection" ColumnName="id_list_collection" />
                 <ScalarProperty Name="id_cactus" ColumnName="id_cactus" />
                 <ScalarProperty Name="id_collection" ColumnName="id_collection" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="list_exhibition">
-            <EntityTypeMapping TypeName="cactus1337Model.list_exhibition">
-              <MappingFragment StoreEntitySet="list_exhibition">
+          <EntitySetMapping Name="list_exhibition1">
+            <EntityTypeMapping TypeName="kollectionModel.list_exhibition1">
+              <MappingFragment StoreEntitySet="list_exhibition1">
                 <ScalarProperty Name="id_list_exhibition" ColumnName="id_list_exhibition" />
                 <ScalarProperty Name="id_cactus" ColumnName="id_cactus" />
                 <ScalarProperty Name="id_exhibition" ColumnName="id_exhibition" />
@@ -387,7 +403,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="cactus1337Model.sysdiagrams">
+            <EntityTypeMapping TypeName="kollectionModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />

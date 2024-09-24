@@ -59,5 +59,9 @@ namespace CollectionCactus.page
             
         }
 
+        private void ListExhibition_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
